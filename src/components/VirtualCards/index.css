@@ -1,0 +1,11 @@
+.app-container {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.content-container {
+  width: 80%;
+  border: 2px solid red;
+}
