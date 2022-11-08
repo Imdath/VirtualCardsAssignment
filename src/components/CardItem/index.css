@@ -1,0 +1,157 @@
+.card-container {
+  min-height: 220px;
+  width: 550px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 2px 9px rgb(189, 180, 180);
+}
+
+.name-subscription-burner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name-subscription-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.subscription-container {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.owner-name {
+  font-family: 'Roboto';
+  font-size: 13px;
+  color: #998f8f;
+}
+
+.dot {
+  font-size: 20px;
+  color: #998f8f;
+}
+
+.subscription-text {
+  font-family: 'Roboto';
+  font-size: 13px;
+  color: #998f8f;
+}
+
+.fire-icon-container {
+  background-color: #fafafa;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  box-shadow: 1px 2px 9px rgb(189, 180, 180);
+  margin-right: 20px;
+}
+
+.fire-icon {
+  color: red;
+}
+
+.burner-expires-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.burner-text-container {
+  margin-left: 15px;
+  border: 1px solid #998f8f;
+  height: 20px;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.burner-text {
+  font-size: 10px;
+  color: #998f8f;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.expires-container {
+  margin-right: 15px;
+}
+
+.expires-text {
+  font-family: 'Roboto';
+  font-size: 13px;
+  color: #998f8f;
+}
+
+.green-line {
+  background-color: green;
+  height: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+  width: 95%;
+}
+
+.spent-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spent-text-container {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.currency-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.red-dot {
+  font-size: 40px;
+  color: red;
+}
+
+.spent-text {
+  font-size: 14px;
+}
+
+.currency-container {
+  display: flex;
+  justify-content: space-around;
+  width: 13%;
+  align-items: center;
+}
+
+.value-text {
+  font-size: 15px;
+  font-family: 'Roboto';
+}
+
+.currency-text {
+  font-size: 15px;
+  font-family: 'Roboto';
+}
+
+.green-dot {
+  font-size: 40px;
+  color: green;
+}

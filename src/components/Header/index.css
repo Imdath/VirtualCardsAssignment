@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border: 2px solid blue;
 }
 
 .title-container {
@@ -21,6 +20,7 @@
   background-color: #fafafa;
   border-radius: 10px;
   padding: 5px;
+  height: 30px;
 }
 
 .title {

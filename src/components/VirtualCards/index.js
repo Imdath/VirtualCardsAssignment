@@ -1,19 +1,19 @@
-import {Component} from 'react'
-
 import Header from '../Header'
+
+import Tab from '../Tab'
+
+import SearchFilter from '../SearchFilter'
 
 import './index.css'
 
-class VirtualCards extends Component {
-  render() {
-    return (
-      <div className="app-container">
-        <div className="content-container">
-          <Header />
-        </div>
-      </div>
-    )
-  }
-}
+const VirtualCards = () => (
+  <div className="app-container">
+    <div className="content-container">
+      <Header />
+      <Tab />
+      <SearchFilter />
+    </div>
+  </div>
+)
 
 export default VirtualCards
