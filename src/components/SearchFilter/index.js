@@ -29,7 +29,7 @@ const cardDetails = [
     name: 'Quickbooks',
     budgetName: 'Software subscription',
     ownerName: 'Rajesh',
-    ownerId: 1,
+    ownerId: 2,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -47,7 +47,7 @@ const cardDetails = [
     name: 'Motion',
     budgetName: 'Software subscription',
     ownerName: 'Rajith',
-    ownerId: 1,
+    ownerId: 3,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -65,7 +65,7 @@ const cardDetails = [
     name: 'Pandadoc',
     budgetName: 'Software subscription',
     ownerName: 'Mayank',
-    ownerId: 1,
+    ownerId: 4,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -83,7 +83,7 @@ const cardDetails = [
     name: 'Xero',
     budgetName: 'Software subscription',
     ownerName: 'Rajesh',
-    ownerId: 1,
+    ownerId: 5,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -101,7 +101,7 @@ const cardDetails = [
     name: 'Mookambika',
     budgetName: 'Miscellaneous',
     ownerName: 'Mayank',
-    ownerId: 1,
+    ownerId: 6,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -119,7 +119,7 @@ const cardDetails = [
     name: 'Apple Dev License',
     budgetName: 'Software subscription',
     ownerName: 'Vishal',
-    ownerId: 1,
+    ownerId: 7,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -136,8 +136,8 @@ const cardDetails = [
   {
     name: 'Visa',
     budgetName: 'Software subscription',
-    ownerName: 'Rajith',
-    ownerId: 1,
+    ownerName: 'Imdath',
+    ownerId: 8,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -155,7 +155,7 @@ const cardDetails = [
     name: 'Mastercard',
     budgetName: 'Software subscription',
     ownerName: 'Vishal',
-    ownerId: 1,
+    ownerId: 9,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -173,7 +173,7 @@ const cardDetails = [
     name: 'Rupay',
     budgetName: 'Software subscription',
     ownerName: 'Mayank',
-    ownerId: 1,
+    ownerId: 10,
     spent: {
       spentValue: 0,
       spentCurrency: 'SGD',
@@ -212,6 +212,7 @@ class SearchFilter extends Component {
               className="search-bar"
               placeholder="Search by card name"
               onChange={this.searchCard}
+              value={searchInput}
             />
             <BiSearch className="search-filter-icon" />
           </div>
@@ -222,7 +223,7 @@ class SearchFilter extends Component {
         </div>
         <ul className="card-lists-container">
           {searchResults.map(eachCard => (
-            <CardItem key={eachCard} cardDetails={eachCard} />
+            <CardItem key={eachCard.ownerId} cardDetails={eachCard} />
           ))}
         </ul>
       </>

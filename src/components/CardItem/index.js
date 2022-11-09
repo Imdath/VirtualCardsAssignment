@@ -66,7 +66,7 @@ const CardItem = props => {
           <p className="currency-text">{spentCurrency}</p>
         </div>
       </div>
-      <div className="spent-container">
+      <div className="spent-container bold">
         <div className="spent-text-container">
           <BsDot className="green-dot" />
           <p className="spent-text">Available to spend</p>
