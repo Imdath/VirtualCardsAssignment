@@ -11,15 +11,15 @@ const CardItem = props => {
   const {
     name,
     ownerName,
+    availableCurrency,
+    availableValue,
     budgetName,
     cardType,
     expiry,
-    spent,
-    availableToSpend,
     limit,
+    spentCurrency,
+    spentValue,
   } = cardDetails
-  const {spentValue, spentCurrency} = spent
-  const {availableValue, availableCurrency} = availableToSpend
 
   return (
     <li className="card-container">

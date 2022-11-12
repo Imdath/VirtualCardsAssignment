@@ -1,197 +1,46 @@
 import {Component} from 'react'
 
+import Loader from 'react-loader-spinner'
+
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+
 import {BiSearch, BiFilter} from 'react-icons/bi'
 
 import CardItem from '../CardItem'
 
 import './index.css'
 
-const cardDetails = [
-  {
-    name: 'Mixmax',
-    budgetName: 'Software subscription',
-    ownerName: 'Vishal',
-    ownerId: 1,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'BURNER',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Quickbooks',
-    budgetName: 'Software subscription',
-    ownerName: 'Rajesh',
-    ownerId: 2,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'SUBSCRIPTION',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Motion',
-    budgetName: 'Software subscription',
-    ownerName: 'Rajith',
-    ownerId: 3,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'BURNER',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Pandadoc',
-    budgetName: 'Software subscription',
-    ownerName: 'Mayank',
-    ownerId: 4,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'SUBSCRIPTION',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Xero',
-    budgetName: 'Software subscription',
-    ownerName: 'Rajesh',
-    ownerId: 5,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'BURNER',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Mookambika',
-    budgetName: 'Miscellaneous',
-    ownerName: 'Mayank',
-    ownerId: 6,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'SUBSCRIPTION',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Apple Dev License',
-    budgetName: 'Software subscription',
-    ownerName: 'Vishal',
-    ownerId: 7,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'BURNER',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Visa',
-    budgetName: 'Software subscription',
-    ownerName: 'Imdath',
-    ownerId: 8,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'SUBSCRIPTION',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Mastercard',
-    budgetName: 'Software subscription',
-    ownerName: 'Vishal',
-    ownerId: 9,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'BURNER',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-  {
-    name: 'Rupay',
-    budgetName: 'Software subscription',
-    ownerName: 'Mayank',
-    ownerId: 10,
-    spent: {
-      spentValue: 0,
-      spentCurrency: 'SGD',
-    },
-    availableToSpend: {
-      availableValue: 1000,
-      availableCurrency: 'SGD',
-    },
-    cardType: 'SUBSCRIPTION',
-    expiry: '9 feb',
-    limit: 100,
-    status: 'active',
-  },
-]
-
 class SearchFilter extends Component {
   state = {
     searchInput: '',
+    cardsData: [],
+    isLoading: true,
+  }
+
+  componentDidMount() {
+    this.getCardsData()
+  }
+
+  getCardsData = async () => {
+    const response = await fetch(
+      'https://636e4571182793016f3be22b.mockapi.io/cards?p=1&l=10',
+    )
+    const data = await response.json()
+    const updatedData = data.map(eachItem => ({
+      name: eachItem.name,
+      ownerName: eachItem.owner_name,
+      availableCurrency: eachItem.available_currency,
+      availableValue: eachItem.available_value,
+      budgetName: eachItem.budget_name,
+      cardType: eachItem.card_type,
+      expiry: eachItem.expiry,
+      id: eachItem.id,
+      limit: eachItem.limit,
+      spentCurrency: eachItem.spent_currency,
+      spentValue: eachItem.spent_value,
+      status: eachItem.status,
+    }))
+    this.setState({cardsData: updatedData, isLoading: false})
   }
 
   searchCard = event => {
@@ -199,8 +48,8 @@ class SearchFilter extends Component {
   }
 
   render() {
-    const {searchInput} = this.state
-    const searchResults = cardDetails.filter(eachCard =>
+    const {searchInput, cardsData, isLoading} = this.state
+    const searchResults = cardsData.filter(eachCard =>
       eachCard.name.toLowerCase().includes(searchInput.toLowerCase()),
     )
     return (
@@ -221,11 +70,18 @@ class SearchFilter extends Component {
             <p>Filter</p>
           </div>
         </div>
-        <ul className="card-lists-container">
-          {searchResults.map(eachCard => (
-            <CardItem key={eachCard.ownerId} cardDetails={eachCard} />
-          ))}
-        </ul>
+
+        {isLoading ? (
+          <div className="loader-container">
+            <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
+          </div>
+        ) : (
+          <ul className="card-lists-container">
+            {searchResults.map(eachCard => (
+              <CardItem key={eachCard.ownerId} cardDetails={eachCard} />
+            ))}
+          </ul>
+        )}
       </>
     )
   }

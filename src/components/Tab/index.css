@@ -52,4 +52,5 @@
 
 .button {
   min-width: 60px;
+  cursor: pointer;
 }
