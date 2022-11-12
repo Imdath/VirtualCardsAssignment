@@ -6,6 +6,8 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
 import {BiSearch, BiFilter} from 'react-icons/bi'
 
+import Pagination from '../Pagination'
+
 import CardItem from '../CardItem'
 
 import './index.css'
@@ -15,6 +17,8 @@ class SearchFilter extends Component {
     searchInput: '',
     cardsData: [],
     isLoading: true,
+    currentPage: 1,
+    postsPerPage: 10,
   }
 
   componentDidMount() {
@@ -23,7 +27,7 @@ class SearchFilter extends Component {
 
   getCardsData = async () => {
     const response = await fetch(
-      'https://636e4571182793016f3be22b.mockapi.io/cards?p=1&l=10',
+      'https://636e4571182793016f3be22b.mockapi.io/cards',
     )
     const data = await response.json()
     const updatedData = data.map(eachItem => ({
@@ -47,11 +51,27 @@ class SearchFilter extends Component {
     this.setState({searchInput: event.target.value})
   }
 
+  paginate = page => {
+    this.setState({currentPage: page})
+  }
+
   render() {
-    const {searchInput, cardsData, isLoading} = this.state
-    const searchResults = cardsData.filter(eachCard =>
+    const {
+      searchInput,
+      cardsData,
+      isLoading,
+      currentPage,
+      postsPerPage,
+    } = this.state
+
+    const lastPostIndex = currentPage * postsPerPage
+    const firstPostIndex = lastPostIndex - postsPerPage
+    const currentCards = cardsData.slice(firstPostIndex, lastPostIndex)
+
+    const searchResults = currentCards.filter(eachCard =>
       eachCard.name.toLowerCase().includes(searchInput.toLowerCase()),
     )
+
     return (
       <>
         <div className="search-filter-container">
@@ -82,6 +102,12 @@ class SearchFilter extends Component {
             ))}
           </ul>
         )}
+        <Pagination
+          totalPosts={cardsData.length}
+          postsPerPage={postsPerPage}
+          paginate={this.paginate}
+          currentPage={currentPage}
+        />
       </>
     )
   }

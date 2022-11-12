@@ -21,6 +21,10 @@ const CardItem = props => {
     spentValue,
   } = cardDetails
 
+  const overallWidth = spentValue + availableValue
+  const spentWidth = (spentValue / overallWidth) * 90
+  const availableWidth = (availableValue / overallWidth) * 90
+
   return (
     <li className="card-container">
       <div className="name-subscription-burner-container">
@@ -54,8 +58,10 @@ const CardItem = props => {
           )}
         </div>
       </div>
-
-      <hr className="green-line" />
+      <div className="bar-container">
+        <hr style={{width: `${spentWidth}%`}} className="red-bar" />
+        <hr style={{width: `${availableWidth}%`}} className="green-bar" />
+      </div>
       <div className="spent-container">
         <div className="spent-text-container">
           <BsDot className="red-dot" />

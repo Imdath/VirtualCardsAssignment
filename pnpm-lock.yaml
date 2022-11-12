@@ -9,6 +9,7 @@ dependencies:
   react-dom: 17.0.1_react@17.0.1
   react-icons: 4.6.0_react@17.0.1
   react-loader-spinner: 4.0.0_react-dom@17.0.1+react@17.0.1
+  react-paginate: 8.1.4_react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
   reactjs-popup: 2.0.5_react-dom@17.0.1+react@17.0.1
 devDependencies:
@@ -11583,6 +11584,15 @@ packages:
       react-dom: '*'
     resolution:
       integrity: sha512-RU2vpEej6G4ECei0h3q6bgLU10of9Lw5O+4AwF/mtkrX5oY20Sh/AxoPJ7etbrs/7Q3u4jN5qwCwGLRKCHpk6g==
+  /react-paginate/8.1.4_react@17.0.1:
+    dependencies:
+      prop-types: 15.8.1
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+    resolution:
+      integrity: sha512-c3rxjcTEqeDQa6LqXifxLeFguY2qy2CHGRphVjHLFFMGfIHyaJ+v3bOvIlLYEeohwQ1q+cQpknjsqBVrkc/SNA==
   /react-refresh/0.8.3:
     dev: true
     engines:
@@ -14349,6 +14359,7 @@ specifiers:
   react-dom: 17.0.1
   react-icons: 4.6.0
   react-loader-spinner: 4.0.0
+  react-paginate: 8.1.4
   react-router-dom: 5.2.0
   react-scripts: 4.0.3
   reactjs-popup: 2.0.5

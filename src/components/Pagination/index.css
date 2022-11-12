@@ -1,0 +1,30 @@
+.inactive-button {
+  background-color: mediumturquoise;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border-width: 0px;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-weight: bold;
+  color: white;
+  margin: 10px;
+}
+
+.active-button {
+  background-color: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-weight: bold;
+  margin: 10px;
+  border: 1px solid mediumaquamarine;
+  width: 30px;
+  height: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
